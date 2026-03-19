@@ -1,0 +1,76 @@
+📑 Agenda for Week1 day 04- Arrays and functions in JavaScript
+
+07:00 to 07:45 -> Arrays
+07:45 to 08:00 -> Break out
+08:00 to 8:10 -> Break
+08:10 to 08:45 -> Functions
+08.45 to 09:00 -> summarize and recap.
+
+
+Arrays
+------
+
+An array in JavaScript is a special type of object used to store multiple values in a single variable.
+Each value (called an element) has an index, starting from 0.
+
+ex:let fruits = ['apple', 'banana', 'cherry'];
+   console.log(fruits[0]); // 'apple'
+
+
+   Key Features of JavaScript Arrays
+   ----------------------------------
+
+1) Dynamic in size — you can add or remove elements anytime.
+
+2) Heterogeneous in Nature-Can store different data types together as an single array
+Ex: let mixed = [10, 'apple', true, { name: 'John' }];
+
+3) Zero-based index — first element is at index 0.
+
+4) Internally objects — JS arrays are not fixed memory blocks like in C/C++/Java.
+
+5) Provides built-in methods like push(), pop(),shift(), unshift(), slice(), splice()
+
+
+push() is used add 1 or more elements to the end of the Array.
+pop() is used to remove only one element from the end of an array
+shift() is used to remove only one element from the start of the array
+unshift() is used to add 1 or more elements at the beginning of the Aray
+slice() is used extract a portion of an array without changing the original array.
+splice() is used to add, remove, or replace elements at a specific index in an array.
+
+
+Classroom Activity:
+-------------------
+
+Write the JS program to print duplicates in an array.
+let num=[56,78,90,23,90,76,43,56]
+
+Functions:
+---------
+
+A function in JavaScript is a reusable block of code used to perform a specific task and there by
+
+Avoid code repetition
+Improve readability
+
+syntax:
+-------
+
+function funName(){
+
+}
+funName()
+
+
+types of function:
+------------------
+
+1) Named function/ function declaration
+2) Function expression/Anonymous function
+3) Arrow function
+4) callback function
+
+
+
+
