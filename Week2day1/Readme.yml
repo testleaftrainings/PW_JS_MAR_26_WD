@@ -1,0 +1,110 @@
+📑 Agenda for Week2 day 01- Playwright Introduction.
+
+07:00 to 07:45 -> Get started with Playwright
+07:45 to 08:10 -> Browser, Context and Page
+08:10 to 8:20 -> Break
+08:20 to 08:50 -> Breakout and Hands-on
+08.50 to 09:00 -> summarize and recap.
+
+
+callback function: 
+------------------
+
+callback -> when one function is passed as on argument to another function, then that 
+function is called callback function.
+
+agrs -> callback -> user define
+
+
+function Tleaf(name,callback){ //function Tleaf(name="Gauthami",callback=b)
+console.log(name)
+callback(30) //b(30)
+}
+
+function b(age){
+console.log(age)
+}
+
+Tleaf("Gauthami",b)
+
+
+Promise
+-------
+
+Promise is a JavaScript object used to handle asynchronous operations (like API calls, 
+file read, timers) and gives a result in the future
+
+//to avoid the callback- callback hell -> Promise 
+
+-> resolve() -> when task succeeds -> fulfilled
+-> reject() -> when task fails -> rejected
+-> pending() -> initial state()
+
+
+.then() and .catch()
+--------------------
+
+-> .then() -> handel succeeds -> reslove
+-> .catch() -> handles error -> reject
+
+
+//syntax 
+let promise =new Promise((resolve,reject)=>{
+
+console.log("order food")
+setTimeout(()=>{
+    resolve("food is ready")-> pass
+    reject("no delivery") ->fail
+},6000)
+})
+
+promise.then(result=>console.log(result)).catch(error=>console.log(error))
+
+
+Async-await
+-----------
+
+//2017 ->async/await -> playwright
+//await => promise
+
+ex:
+
+async function data(){
+
+await page.goto("url")
+await page.locator("username").fill("demomanager")
+
+}
+
+`async/await` is a cleaner way to handle Promises in JavaScript.
+
+* `async` keyword defines a function that returns a Promise.
+* `await` pauses execution until the Promise is resolved or rejected.
+
+
+Playwright Introduction
+-----------------------
+
+Playwright is a Node.js library for automating web browsers. It provides a high-level 
+API to control browsers like Chromium, Firefox, and WebKit, allowing developers to write
+scripts for testing, web scraping, and automating tasks in a browser environment.
+
+ Playwright supports multiple programming languages, including JavaScript, TypeScript,
+ Python, C#, and Java.
+
+ CDP:
+ ----
+
+ CDP is a low-level protocol used by tools (like Playwright, Puppeteer) to control, inspect, and debug Chromium-based browsers.
+It allows direct access to browser internals like **DOM**, **network**, **console**, etc.
+
+
+
+ Browswer -> Context -> Page
+ ----------------------------
+
+Browser: Actual browser engine (Chromium, Firefox, WebKit)
+
+Context: Isolated environment like an incognito session
+
+Page: A single tab within a context
