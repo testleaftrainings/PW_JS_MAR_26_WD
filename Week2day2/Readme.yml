@@ -1,0 +1,170 @@
+📑 Agenda for Week2 day 01- Playwright Selectors.
+
+07:00 to 07:45 -> Page Fixture and Playwright config file walk through.
+07:45 to 08:00 -> Breakout and Hands-on
+08:00 to 8:10 -> Break
+08:10 to 08:40 -> DOM Basics and CSS Selectors
+08.40 to 09:00 -> Breakout and Hands-on
+
+
+Page Fixture:
+-------------
+
+Built-in object (page) provided by the test runner to interact with a browser page 
+(open URL, click, type, etc.)
+
+No need to create browser/page manually, it is automatically handled by the test runner.
+
+syntax:
+-------
+
+test('title', async ({ page }) => {
+  await page.goto('https://www.google.com/'); // using page fixture
+});
+
+
+Internally(page fixture implementation):
+---------------------------------------
+test('title', async () => {
+const browser = await chromium.launch();
+const context = await browser.newContext();
+const page = await context.newPage();
+await page.goto('https://www.google.com/')
+})
+
+
+Playwright Config File:
+-----------------------
+
+A configuration file (playwright.config.ts) that defines settings for running tests
+such as test directory, timeout, browser options, etc.
+
+It allows you to customize the test environment and behavior.
+
+
+reporter:[['html', { open: 'always' }]],
+
+use:
+
+trace: 'on',
+video: 'on',
+screenshot:'on',
+headless: false,
+
+Projects: 
+
+  {
+    name: 'chrome',
+    use: {
+      channel: 'chrome',
+      viewport: null,
+      launchOptions: {
+        args: ['--start-maximized'],
+      },
+    },
+  },
+
+
+DOM Basics:
+
+DOM (Document Object Model) is a programming interface for HTML and XML documents. 
+It represents the page as a tree of objects, allowing scripts to manipulate the content, 
+structure, and style of a webpage.
+
+structure of DOM:
+----------------- 
+
+Ways to Open DOM:
+-----------------
+
+1. right click on the application and click on inspect
+2. press f12 or fn + f12
+3. press ctrl + shift + i => browser click on 3 idot -> more tools -> developer tools
+
+
+- Document: The root of the DOM tree, representing the entire webpage.
+
+- The entire page is didvided into two main sections:
+  - Head: Contains metadata, links to stylesheets, scripts, etc.
+  - Body: Contains the visible content of the webpage (text, images, links, etc.)
+- Element: Represents an HTML element (e.g., <div>, <p>, <a>, etc.) and can have 
+ attributes and child elements.
+
+
+Playwright Selectors:
+--------------------
+
+Selectors are used to locate and interact with elements on a webpage. Playwright supports
+various types of selectors, including:
+
+CSS Locators
+Xpath
+Playwright built in locators
+
+1. CSS Selectors: Use CSS syntax to select elements based on their classes, IDs, attributes, etc.
+   Example: page.locator('input[name="username"]')
+
+
+Basic Loactor:
+1.id
+2.class
+3.name
+
+
+<input class="inputLogin" type="text" id="username" name="USERNAME" size="50">
+<label for="username">Username</label>
+
+tag name-> input, label
+
+class,type,id,name,size -> attributeName
+
+"inputLogin","text","username","USERNAME" -> attributeValue
+
+black color text-Username -> text
+
+id-unique value
+name - name of the attribute
+class -used for styling/grouping elements
+
+
+CSS : Cascading Style sheets
+
+id attribute
+-------------
+
+1. #attributeValue -> #username
+2. [id='username']
+3. tagname[attributeName='attributeValue'] -> input[id='username']
+
+name attribute:
+---------------
+
+1. [name='USERNAME']
+2. tagname[attributeName='attributeValue'] -> input[name='USERNAME']
+
+class attribute:
+----------------
+
+1. .attributeValue -> .decorativeSubmit
+2. [class='decorativeSubmit']
+3. tagname[attributeName='attributeValue'] -> input[class='decorativeSubmit']
+
+.input r4 wide mb16 mt8 username -> it wll not work
+.input.r4.wide.mb16.mt8.username -> it will work
+
+.nav-input nav-progressive-attribute
+.nav-input.nav-progressive-attribute
+
+text value: link-> a
+text='textvalue' -> `text='CRM/SFA'`
+
+
+classRoom 2:
+load url : https://login.salesforce.com/?locale=in
+username : dilipkumar.rajendran@testleaf.com
+password : TestLeaf@2025
+click on login button
+wait(12000)
+click on applauncher or 9 dot icon
+
+
