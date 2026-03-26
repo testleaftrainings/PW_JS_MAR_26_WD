@@ -1,0 +1,110 @@
+📑 Agenda for Week2 day 04- Advanced ralative xpaths.
+
+07:00 to 07:20: -> Custom dropdown
+07:20 to 07:40 -> Breakout and Hansdon
+07:40 to 07:50 -> Break
+07:50 to 08:40 -> Advanced xpaths
+08:40 to 09:00 -> Breakout and Handson
+
+
+Custom dropdown
+----------------
+
+Handling Custom Dropdowns with click action (Built with <div>,<li <ul>)
+
+div-division
+li->list
+ul-> unordered list
+
+Example:
+<div class="dropdown">
+  <div class="option">India</div>
+  <div class="option">USA</div>
+  <div class="option">UK</div>
+</div>
+
+//open the dropdown
+await page.locator('.dropdown').click();
+
+//select the desired option
+await page.locator('.option', { hasText: 'USA' }).click();
+
+| Dropdown Type     | HTML Tag                | Playwright Method |
+| ----------------- | ----------------------- | ----------------- |
+| Standard Dropdown | `<select>`              | `selectOption()`  |
+| Custom Dropdown   | `<div>`, `<ul>`, `<li>` | `click()`         |
+
+
+
+Classroom 1:
+------------
+
+Step 1: launch the leafground url
+URL:https://www.leafground.com/select.xhtml
+
+step 2: Print all the automation tools using Selectoption dropdown method.
+
+Step 3: Choose the preferred country as "India" using custom dropdown method
+
+----------------------------------------------------------------------------------------------------
+
+> Advancd Relative Xpath/ Xpath Axes:
+-------------------------------------
+XPath allows both forward and reverse navigation in the DOM. Reverse navigation is done
+using axes like parent, ancestor, and preceding.
+
+if the index is beyond 5 matches, we go with Advanced relative xpaths.
+
+> parent to child
+> Grandparent to Grandchild
+> child to parent
+> Grandchild to Grandparent
+> ElderSibling and YoungerSibling
+> YoungerSibling to ElderSibling
+> Eldercousin to Youngercousin
+> Youngercousin to Eldercousin
+
+
+1) Parent to child
+Syntax:
+( parent realtive xpath)/(tagName of child)
+EX: //form[@id='login']/p
+
+2) Grand Parent to Grand child
+Syntax: 
+GrandParent relative xpath//tagName of grand child
+Ex: (//form[@id='login']//label)
+
+3) Child to parent
+Syntax:
+Child relative xpath/parent::parent tagName
+Ex: //input[@id='username']/parent::p
+
+4) Grand child to Grand Parent
+Syntax:
+GrandChild relative xpath/ancestor::tagName of grand parent
+Ex: //input[@id='password']/ancestor::form
+
+5) Elder Sibling to younger Sibling
+Syntax:
+(Elder sibling relative xpath)/following-sibling::tagName of younger sibling
+Ex: //label[text()='Username']/following-sibling::input 
+
+6) Younger Sibling to Elder Sibling
+Syntax:
+Younger sibling relative xpath/preceding-sibling::tagName of Elder sibling
+Ex: //input[@id='username']/preceding-sibling::label
+
+7) Elder Cousin to Younger Cousin
+Syntax:
+Elder cousing relative xpath/following::tagName of younger Cousin
+Ex: //input[@id='username']/following::label
+
+
+8) Younger Cousin to Elder Cousin
+Syntax:
+Younger cousin xpath/preceding::tagName of Elder cousin
+Ex: //label[text()='Password']/preceding::input
+
+
+
