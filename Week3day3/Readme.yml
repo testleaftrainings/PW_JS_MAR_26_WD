@@ -1,0 +1,144 @@
+📑 Agenda for Week3 day 03- Typescript Datatypes and Object 
+
+07:00 to 08:00: -> Typescript Datatypes, function, type assertion.
+08:00 to 08:10 -> Break
+08:10 to 08:40 -> Object literal in Typescript and Type Alias
+08:40 to 09:00 -> Breakout with handson
+
+Datatypes in TypeScript 
+-----------------------
+
+1. number
+2. string
+3. boolean
+4. undefined
+5. null
+6. any 
+7. unknown
+8. never
+9. tuple
+
+number: It is used to represent both integer and floating-point numbers.
+
+string: It is used to represent text data. It can be enclosed in single quotes, double quotes, or backticks.
+
+boolean: It is used to represent logical values, which can be either true or false.
+
+undefined: It is a type that represents the absence of a value. A variable that has been declared but not assigned a 
+value is of type undefined.
+
+null: It is a type that represents the intentional absence of any object value. It is often used to indicate that a 
+variable has no value assigned to it.
+
+any: It is a type that can represent any value. used when are not sure about the datatype.
+
+ex: analyze the data from an API and we are not sure about the datatype of the response.
+let data: any = fetchDataFromAPI();
+expected output: data can be of any type, such as string, number, object, etc.
+
+unknown: It is a type that can represent any value, but it is safer than any because it requires type checking before
+using the value.
+ex: let square:unknown=5
+if(typeof square === "number"){
+    console.log(square*square);
+}
+expected output: 25
+
+never: It is a type that represents values that never occur. It is used for functions that throw exceptions or have
+infinite loops.
+
+Ex:
+function stopTest(message: string): never {
+  throw new Error(message);
+}
+
+stopTest("Login failed");
+
+
+| Type    | Meaning                                        |
+| ------- | ---------------------------------------------- |
+| `void`  | Function runs and finishes but returns nothing |
+| `never` | Function never finishes                        |
+
+
+tuple: It is a type that represents an array with a fixed number of elements, where each element can have a different type.
+ex: let person: [string, number] = ["Arun", 30];
+console.log(person[0]);//Arun
+
+
+Typescript function:
+--------------------
+
+function add(a: number, b: number): number {   // function that takes two numbers as parameters and returns a number
+  return a + b;                                //returns the sum of a and b to function
+}
+add(5, 10); // Output: 15
+
+
+Type assertion:
+---------------
+
+Type Assertion in TypeScript is a way to tell the compiler to treat a value as a specific type when the developer knows 
+the type better than the compiler
+
+2 ways to perform type assertion:
+
+1) using angular brackets syntax
+
+let response : any = "Record from server"
+let myResponse = <string> response
+console.log(myResponse.length);
+
+
+2) using as keyword
+
+let sCode : any = "Sucess"
+let statusLength = sCode as string
+console.log(statusLength.length);
+
+object literal in Typescript:
+-----------------------------
+
+In TypeScript, an object literal is a way to define an object with specific properties and their types. It allows you to
+create objects with a defined structure, making it easier to work with complex data.
+
+ex: let person = {
+    name: "Arun",
+    age: 30,
+}
+
+
+type alias:
+-----------
+
+A type alias in TypeScript is a way to create a new name for an existing type. It allows you to define a custom type
+that can be used throughout your codebase, making it easier to manage and maintain complex types.
+
+
+types:
+------
+
+1. Union types
+2. Intersection types
+
+Union Types
+-----------
+
+type Id = string | number;
+
+let userId: Id;
+
+userId = "EMP101";   // valid
+userId = 1001;       // valid
+
+
+Classroom activity on union type :
+ ------------------------------------
+
+- Create a function that accepts only specific payment methods.
+
+- Create a type alias called PaymentMethod that allows only "UPI", "CreditCard", or "PayPal".
+
+- Write a function makePayment that takes a parameter of type PaymentMethod and prints which payment method is chosen.
+
+- Call the function with "UPI" and "CreditCard"as arguments.
