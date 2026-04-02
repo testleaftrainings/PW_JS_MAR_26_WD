@@ -1,0 +1,133 @@
+📑 Agenda for Week3 day 04- Type Alias (Intersection),Enum and Alerts.
+
+07:00 to 07:45 -> Type Intersection and Enum.
+07:45 to 08:00 -> Breakout with handson
+08:00 to 08:10 -> Break
+08:10 to 08:40 -> Alerts
+08:40 to 09:00 -> Breakout with handson
+
+
+Type Intersection
+-----------------
+
+Intersection type combines multiple types into one, meaning the value must satisfy all the types together.
+
+ex:
+type User = { name: string }
+
+type Contact = { phone: number }
+
+type UserContact = User & Contact
+
+let UserContactdetails:UserContact={
+name:"kavitha",
+phone: 735808765
+}
+
+console.log(UserContactdetails.phone)
+
+
+Enum/Enumeration
+-----------------
+enum is a feature in TypeScript that allows you to define a set of named constants.
+
+enum types:
+----------
+Numeric enum(default)
+String enum
+Heterogenious enum
+
+Ex:
+enum environment{
+qa
+prod
+}
+
+let env:environment=environment.qa
+console.log(env)
+
+
+classroom1 on Enum:
+
+1. Create an enum named `Environment` with four values representing different stages of a
+software development process: `LOCAL`, `DEVELOPMENT`, `STAGING`,
+`PRODUCTION`.
+2. Write a function named `runTests` that accepts an argument of type `Environment`. The
+function should print a message indicating the environment against which the tests are
+running.
+3. The function `runTests` should be specified to return `void`, highlighting that it does not
+return any data.
+4. Include example calls to `runTests` using different enum values to demonstrate
+the function's functionality
+
+
+Alerts /Dialogs:
+---------------
+
+alerts are pop-up dialog boxes that appear on the browser to get user attention or input.
+
+types
+-----
+
+a) Modal alerts(not inspectable)
+--------------------------------
+
+1) simple-ok
+2) confirmation-ok and cancel
+3) prompt-ok, cancel and input textbox
+
+
+b) Non modal alerts
+-------------------
+
+1) Sweet-dismiss(inspectabe)
+
+
+Syntax:
+-------
+
+page.on('dialog', async dialog => { ... }) → Listen and handle.
+
+await dialog.accept([promptText]) → Accept dialog (optionally providing input for prompts).
+await dialog.dismiss() → Cancel dialog.
+
+Event Listeners
+--------------
+An event listener is a function that waits for a specific event (like click, input, alert) and executes code when 
+that event happens.
+
+Syntax: page.on(eventName, callback) or page.once(eventName, callback)
+
+------------------------------------------------------------------------------------
+
+page.once()
+---------
+
+page.once() registers an event listener that runs only the first time the event occurs, then it automatically stops
+listening.
+
+page.once('eventName', async (event) => {
+   // handle event
+});
+
+
+page.on()
+---------
+page.on() registers an event listener that will run every time the event occurs.
+
+Handles all the alerts in the page.
+page.on('eventName', async (event) => {
+   // handle event
+});
+
+
+Classroom2:
+
+Write a Playwright test to demonstrate handling JavaScript alerts.
+
+
+1. Launch any banking website- Open Canara Bank Net Banking page
+2. Trigger an alert -click on the Net Banking link
+3. Accept or dismiss the alert based on its type by automating it
+
+
