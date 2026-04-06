@@ -1,0 +1,71 @@
+📑 Agenda for Week4 day 01- Frames in Playwright
+
+Alerts Recap
+Basic understanding of Frames
+Interacting with frames in Playwright
+Break
+Breakout with handson
+
+
+Frames: 
+-------
+
+An HTML document embedded inside another document using an <iframe> tag. Playwright allows direct interaction
+with elements inside frames.
+
+Frame:
+//iframe -> dom (to view frames)
+view Frame source -> right click
+
+ways to handle iFrame:
+------------------------
+
+1) index based - switch to frame with index 
+
+index starts from '0', main page is also considered as a frame at index 0
+ //mP->0 ,f1->1,f2->2,f3->3,f4->4  and so on
+
+ex: 
+const frames = page.frames();
+const frame1=numberOfFrame[1]
+await frame1.locator("#Click").click()
+
+
+2) FrameLocator - Locate the frame first and then perform the action
+//FrameLocator().locator().click()
+
+ex:
+await page.frameLocator("(//iframe)[1]").locator("#Click").click()
+
+3) FrameObject- get the frame using name, URL, or other properties.
+
+await page.frame({url:await page.frame({url:'https://www.leafground.com/default.xhtml'})?.locator("#Click").click()
+or
+const frame = page.frame({ url: 'https://www.leafground.com/default.xhtml'});
+await frame?.locator("#Click").click()
+
+Optional chaining (?.) allows safe access to properties or methods by returning undefined instead of throwing an error
+when the object is null or undefined.
+
+?. => optional chaining (checks if value exists - not null/undefined)
+   if (frame) {
+      await frame.locator("#Click").click()
+   }
+
+
+Types of Frame
+---------------
+
+1. single Frame
+2. Nested Frame (Frame present inside another frame)
+
+
+methods()
+---------
+
+page.frames()-> frames() method helps to get the collection of frames that is present in a webpage.
+
+page.frame({ name | url }) → Gets the frame object to interact with webelement.
+
+page.frameLocator(selector) → Locates elements inside a frame (recommended).
+
