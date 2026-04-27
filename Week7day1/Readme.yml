@@ -1,0 +1,134 @@
+📑 Agenda for Week7 Day1 - Introduction to OOPs in Playwright(TypeScript)
+
+Introduction to OOPs concepts
+Classes and Objects[Encapsulation]
+Methods and Properties
+Constructors
+Breakout+Break
+Access Modifiers (Public, Private, Protected)
+
+
+OOPs:
+----
+
+OOP (Object-Oriented Programming) is a programming method that structures software by designing objects, where each 
+object contains data (properties) and behavior (methods)
+
+4 pillars of OOPs:
+------------------
+
+1. Encapsulation: Bundling data and the methods that operate on that data into a single unit (class) and restricting
+ access using access modifiers.
+
+2. Inheritance: A mechanism where a new class (child class) inherits properties and behaviors from an existing class 
+(parent class), allowing for code reusability and the creation of hierarchical relationships.
+
+3. Polymorphism: The ability of different classes to be treated as instances of the same class through a common interface,
+ often achieved through method overriding or method overloading.
+
+4. Abstraction: The process of hiding the complex implementation details and showing only the necessary features
+
+Features of OOPs:
+-----------------
+1. Reusable
+2. Maintainable
+3. Readable
+4. Scalable
+5. Redundant
+
+Class:
+
+> Template/blueprint for creating an object.
+> variables(properties) and methods are the members of the class.
+
+>> Property: Stores the data about an object
+ex: car 
+door
+engine
+
+>> method(): function inside a class that defines action of the object.
+ex: car
+close()
+accelerate()
+
+
+> Object:
+
+ refers to instance of the class.
+
+let obj=new classname()
+
+> Constructor()->Constructor is a special method in a class used to initialize object properties automatically when 
+an object is created.
+
+types
+-----
+
+1) Default Constructor()
+
+Constructor without parameters.
+
+ex:class Employee {
+  constructor() {
+    console.log("Default Constructor Called");
+  }
+}
+
+let obj1 = new Employee()
+
+2) Parameterized Constructor()
+
+Constructor with parameters to pass values during object creation.
+
+class Employee {
+  name:string="sindu"
+
+  constructor(empName:string) {
+    this.name = empName;
+    console.log(this.name);
+  }
+}
+
+let obj2 = new Employee("Sindhu");
+
+
+classroom 1:
+
+Create class as LoginPage
+property as Url with parameterized data,Title with a value
+methods as Login() and Logout()
+create the Parameterized constructor (Url:string)
+create object inside the same file and execute 
+
+Create another file and call the LoginPage.
+
+
+
+Access Modifiers:
+-----------------
+
+Access Modifiers control visibility of properties and methods in a class.
+
+1. Public (default): Accessible everywhere
+
+public name:string = "Sindhu"
+
+2. Private: Accessible only inside same class
+
+private salary:number = 50000;
+
+3. Protected:Accessible inside the class and inherited child class
+
+class Parent {
+  protected age:number = 25;
+}
+
+class Child extends Parent {
+  show() {
+    console.log(this.age);
+  }
+}
+
+
+
+
