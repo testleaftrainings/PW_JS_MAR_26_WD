@@ -1,0 +1,60 @@
+📑 Agenda for Week7 Day2 - Inheritance
+
+Inheritance:
+Exploring the concept of inheritance for code reuse.
+Examples: Implementing single and multilevel inheritance.
+
+
+
+Inheritance : Inheritance is the process where a child class acquires properties and methods from a parent class for 
+code reusability.
+
+extend is the keyword used to inherit the properties.
+
+1. Single Inheritance :
+When a class inherits another class
+
+class Parent{}-> class Child{}
+
+
+2. Multilevel Inheritance :
+When a class inherits another class which is already inherited from another class
+
+class Grandparent{}->class Parent{}-> class Child{}
+
+
+3. Hierarchical inheritance 
+ When multiple classes inherits a single class
+
+ class Parent{}-> class Child1{}
+ class Parent{}-> class Child2{}
+
+
+4. Hybrid Inheritance
+A combination of two or more types of inheritnace (e.x : multilevel and Hierarchical)
+
+
+5.Multiple Inheritance
+When a derived class inherits more than one parent class
+
+Typescript does not support multiple inheritnace using classes.
+Can be achieved through interface.
+
+ClassRoom 1:
+------------
+
+Parent file
+Create class Browser
+Create 2 methods browserType(),browserVersion()
+
+1st Child file
+Create class Chrome 
+Create 1 method launchBrowser
+create object for Chrome
+
+2nd Child file
+Create class Edge
+Create 1 method launchBrowser
+create object for Edge
+
+
