@@ -1,0 +1,121 @@
+📑 Agenda for Week7 Day4 - Interface and custom fixture
+
+Interface
+Breakout
+Custom fixture
+
+Interface:
+----------
+
+Interface is a contract that defines the structure of methods and properties, and its implementation is provided by 
+the class that implements it.
+
+Ex: interface Login {
+    login(): void;
+}
+
+class User implements Login {
+    login() {
+        console.log("Login successful");
+    }
+}
+
+let obj = new User();
+obj.login();
+
+>> Difference between Abstract and Interface:
+
+
+| Feature         | Abstract Class                           | Interface                               |
+| --------------- | ---------------------------------------- | --------------------------------------- |
+| Purpose         | Partial abstraction                      | Full abstraction                        |
+| Methods         | Can have implemented + abstract methods  | Only method declarations                |
+| Properties      | Can have variables with values           | Only declarations (no values)           |
+| Inheritance     | Class can extend only one abstract class | Class can implement multiple interfaces |
+| Keywords        | `extends`                                | `implements`                            |
+| Object Creation | Cannot create object                     | Cannot create object                    |
+| Use Case        | When common logic is needed              | When only rules/structure needed        |
+
+
+Classroom1:
+
+Create an interface Payment with payment method
+pay(amount: number): void
+create 3 classes with UPI,CreditCard and NetBanking
+each class should implement payment method and provide its own implementation
+
+Custom fixture:
+---------------
+
+page,context, request -> inbuilt fixture of Playwright
+customized fixture
+
+browser->newcontext->newpage
+
+Custom fixture in Playwright is a reusable setup block.
+It helps you write common steps once (like login) and reuse them in multiple tests.
+
+Steps to create ccustom fixture:
+-------------------------------
+
+Import → Extend → Define → Perform actions → Use
+
+
+Step 1: Import required modules
+
+ex: import { test as login,page} from '@playwright/test'
+
+Step 2: Create custom fixture
+extend the playwright test to define new fixture
+
+export const customFixture = login.extend<{ salesForceLogin: any }>({})
+
+Step 3: Define fixture function
+create the async function with page and use to write the logic.
+
+salesForceLogin: async ({ page }, use) => {
+
+Step 4: Perform actions (Login steps)
+
+Open URL
+Enter username & password
+Click login
+Wait for page load
+
+step 5: Use the fixture
+await use(page)
+
+
+>> Difference between storageState and Custom fixture
+
+| Feature     | Storage State                              | Custom Fixture                  |
+| ----------- | ------------------------------------------ | ------------------------------- |
+| Purpose     | Save & reuse browser state (login/session) | Reusable setup logic for tests  |
+| Usage       | Avoid repeated login                       | Avoid repeated test setup       |
+| Scope       | Mostly authentication/session              | Any setup (login, data, config) |
+| Reusability | Reuses saved state file                    | Reuses code logic               |
+| Flexibility | Limited (only state reuse)                 | High (can add any logic)        |
+| Execution   | Loaded before test                         | Runs during test setup          |
+| Example     | Save cookies/token                         | Login + navigation + data setup |
+
+
+Classroom2: Create the custom fixture for LeafTaps login.
+
+steps: 
+
+Import base test and required types
+Extend the base test using .extend()
+Create a fixture method (LeafTaps login logic)
+Perform login steps inside fixture
+
+url:https://leaftaps.com/opentaps/control/main
+Username: democsr, democsr2,demosalesmanager
+Password: crmsfa
+
+Use use() to pass the logged-in page
+Export the customized test
+Import and use it in test files
+
+
+Week7-Feedback form
+Form Link: https://forms.office.com/r/E8cZVcAsWa
