@@ -1,0 +1,49 @@
+📑 Agenda for Week8 Day4 - Playwright Features
+
+Recap GitHub Actions
+Device Emulation
+Visual Regression testing
+Geolocation Testing
+codegen
+Breakout Session
+
+
+Device Emulation:
+simulating a real mobile/tablet device behavior inside the browser without having the actual device.
+ex:mobile, tablet, desktop
+
+
+Visual Regression Testing:
+Compare webpage screenshots to detect visual changes and useful for ensuring UI consistency across all
+updates
+
+
+Geolocation Testing:
+Simulating different user locations (latitude and longitude) to verify location-based 
+application behavior.
+
+usage:
+Validate location-specific content ex: local news, weather, or events
+Verify maps, nearby services, delivery availability Ex: food delivery, ride-sharing
+
+codegen:
+codegen in Playwright is a tool used to automatically generate automation scripts by recording user actions 
+performed in the browser.
+
+
+command: npx playwright codegen
+
+Features:
+---------
+Faster test creation
+Captures locators automatically
+Reduces manual scripting effort
+
+
+
+Week8 Feedback form:
+
+Form LinK: https://forms.office.com/r/zpMdMT3ZFW	
+
+
+
